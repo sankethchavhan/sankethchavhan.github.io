@@ -435,10 +435,10 @@ span{
         flex-direction: column-reverse;
     }
 
-    .about img{
+    /* .about img{
         width: 70vw;
         margin-top: 4rem;
-    }
+    } */
 }
 
 /* @media (max-width: 617px){
@@ -456,13 +456,13 @@ span{
 }
 
 @media (max-width: 365px){
-    .home-img img{
+    /* .home-img img{
         width: 90vw;
-    }
+    } */
 
-    .about-img img{
+    /* .about-img img{
         width: 90vw;
-    }
+    } */
 
     .footer p{
         text-align: center;
