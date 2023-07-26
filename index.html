@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- redirecting to start of website when reloaded -->
+    <script>
+        window.addEventListener('beforeunload', function (event) {
+            event.preventDefault();
+            window.location.href = 'https://sankethchavhan.github.io/';
+        });
+    </script>
 </head>
 <body onLoad="refresh()">
     
