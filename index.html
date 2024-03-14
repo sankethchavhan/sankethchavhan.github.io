@@ -102,7 +102,7 @@
     <section class="contact" id="contact">
         <h2 class="heading">Send a <span>Hello!</span></h2>
 
-        <form action="#" onsubmit="sendEmail(); reset(); return false;">
+        <form action="#" onsubmit="sendEmail(); return false;">
             <div class="input-box">
                 <input id="name" type="text" placeholder="Full Name">
                 <input id="gmail" type="email" placeholder="Email Address">
@@ -128,26 +128,30 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <!-- <script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- Include EmailJS library -->
+    
+    <script>
+        emailjs.init("zhUKEMYiRpVAMISPv");
         function sendEmail(){
-            Email.send({
-            Host : "smtp.gmail.com",
-            Username : "sanketh09c@gmail.com",
-            Password : "Goobe1234",
-            To : 'sanketh09c@gmail.com',
-            From : document.getElementById("email").value,
-            Subject : "New contact form enquiry",
-            Body : "Name: " + document.getElementById("name").value
-                + "<br> Email: " +document.getElementById("gmail").value
-                + "<br> Mobile Number: " +document.getElementById("mobile-number").value
-                + "<br> Mail Subject: " +document.getElementById("mail-subject").value
-                + "<br> Message: " +document.getElementById("message").value
-        }).then(
-        message => alert("Message Sent Successfully!")
-        );
+            emailjs.send("service_1qwsdtb", "template_qj77iba", {
+            from_name: document.getElementById("name").value,
+            gmail: document.getElementById("gmail").value, // Changed reply_to to gmail to match template placeholder
+            to_name: 'Sanketh', // Add recipient's name if required
+            "mail-subject": document.getElementById("mail-subject").value, // Added quotes for mail-subject to match template placeholder
+            "mobile-number": document.getElementById("mobile-number").value, // Added quotes for mobile-number to match template placeholder
+            message: document.getElementById("message").value // Changed message_html to message to match template placeholder
+        })
+
+            .then(function(response) {
+                console.log("Email sent successfully:", response);
+                alert("Message Sent Successfully!");
+            }, function(error) {
+                console.error("Error sending email:", error);
+                alert("Error sending email. Please try again later.");
+            });
         }
-    </script> -->
+    </script>
     <script src="script.js"></script>
+    
 </body>
 </html>
